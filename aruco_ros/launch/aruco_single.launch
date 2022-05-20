@@ -8,7 +8,7 @@
     <arg name="corner_refinement" default="LINES" /> <!-- NONE, HARRIS, LINES, SUBPIX -->
 
 
-    <node pkg="aruco_ros" type="single" name="aruco_single">
+    <node pkg="aruco_ros" type="single" name="aruco">
         <remap from="/camera_info" to="/vimana/camera/color/camera_info" />
         <remap from="/image" to="/vimana/camera/color/image_raw" />
         <param name="image_is_rectified" value="False"/>
@@ -19,6 +19,9 @@
         <param name="marker_frame"       value="$(arg marker_frame)" />
         <param name="corner_refinement"  value="$(arg corner_refinement)" />
     </node>
+
+
+    <node pkg="precision_landing" name="landing_mode" type="landing.py" output="screen"></node>
 
 </launch>
 
