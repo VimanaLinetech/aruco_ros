@@ -23,7 +23,9 @@
 
     <node pkg="precision_landing" name="landing_mode" type="aruco_global_position.py" output="screen"></node>
 
-    <node pkg="precision_landing" name="landing_msg_converter" type="mavlink_precision_landing.py" output="screen"></node>
+    <node pkg="precision_landing" name="land_static" type="static_land.py" output="screen">
+        <param name="constant_above_land"       value="0.5"/>
+    </node>
 
 </launch>
 
