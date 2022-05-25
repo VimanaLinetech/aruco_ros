@@ -21,11 +21,17 @@
     </node>
 
 
-    <node pkg="precision_landing" name="landing_mode" type="aruco_global_position.py" output="screen"></node>
+    <node pkg="precision_landing" name="camera_pose_publisher" type="aruco_global_position.py" output="screen">
+        <param name="parent_frame" value="world" />
+        <param name="child_frame" value="aruco_marker_frame" />
+        <param name="pose_topic" value="/aruco/pose_reconstructed" />
+    </node>
 
     <node pkg="precision_landing" name="land_static" type="static_land.py" output="screen">
         <param name="constant_above_land"       value="0.5"/>
     </node>
 
+    <node pkg="tf" type="static_transform_publisher" name="world_map_linker" args="0 0 0 0 0 0 world map 100" />
+    
 </launch>
 
