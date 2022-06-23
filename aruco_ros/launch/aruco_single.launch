@@ -21,16 +21,11 @@
     </node>
 
 
-    <!-- <node pkg="precision_landing" name="camera_pose_publisher" type="aruco_global_position.py" output="screen">
+    <!-- <node pkg="camera_to_ros" name="camera_pose_publisher" type="aruco_global_position.py" output="screen">
         <param name="parent_frame" value="camera_link" />
         <param name="child_frame" value="aruco_marker_frame" />
         <param name="pose_topic" value="/aruco/pose_reconstructed" />
     </node> -->
 
-    <!-- <node pkg="precision_landing" name="land_static" type="static_land.py" output="screen">
-        <param name="constant_above_land"       value="0.5"/>
-    </node>  -->
-
     <node pkg="tf" type="static_transform_publisher" name="camera_linker" args="0 0 -0.16 -1.57 0 -1.57 base_link camera_link 100" />    
 </launch>
-
